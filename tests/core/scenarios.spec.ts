@@ -899,3 +899,55 @@ test('REQ-22: reducePayment after an earlier reduceTerm restores the original te
     'REQ-22 read literally: reducePayment recomputes over termMonths - M',
   ).toBe(BASE.termMonths);
 });
+
+/* ------------------------------------------------------------------ *
+ * Added during the merge, not by agent D.
+ *
+ * Degenerate annuity: when roundHalfUp(B*K) equals roundHalfUp(B*i), the rounded
+ * payment covers nothing but the rounded interest, so principal is 0 every month
+ * and the whole body is closed by the corrective final payment (REQ-05).
+ *
+ * Agents A and B hit this independently — different languages, no sight of each
+ * other's code — and neither invented a fix for it. INV-06 was weakened from
+ * "principal > 0" to "principal >= 0" as a result; see D-23.
+ *
+ * These are characterisation tests: they pin down observed behaviour of the model
+ * at parameters the specification allows, not a property derived from require-
+ * ments. The parameters are the ones agent B's 290-case set surfaced.
+ * ------------------------------------------------------------------ */
+
+const DEGENERATE = { amount: rub(10_000), annualRatePercent: 100, termMonths: 360 };
+
+test('REQ-12/REQ-04: a degenerate annuity amortises nothing before the final month', () => {
+  const result = run(input(DEGENERATE));
+
+  const beforeLast = result.schedule.slice(0, -1).map((r) => r.principal);
+
+  expect(beforeLast).toEqual(zerosLike(beforeLast));
+});
+
+test('REQ-05: a degenerate annuity still closes the debt exactly', () => {
+  const result = run(input(DEGENERATE));
+  const last = result.schedule[result.schedule.length - 1] as RowShape;
+
+  expect(last.principal).toBe(DEGENERATE.amount);
+  expect(last.balanceAfter).toBe(0);
+});
+
+test('REQ-12/REQ-04: the degeneracy holds at the top of the amount range too', () => {
+  // Same rate and term, the largest amount the contract allows (REQ-06).
+  const result = run(input({ ...DEGENERATE, amount: rub(100_000_000) }));
+
+  const beforeLast = result.schedule.slice(0, -1).map((r) => r.principal);
+
+  expect(beforeLast).toEqual(zerosLike(beforeLast));
+});
+
+test('REQ-12/REQ-04: the degeneracy appears just below the rate ceiling as well', () => {
+  // 99,99 % — not the boundary value itself, so this is not a single-point artefact.
+  const result = run(input({ ...DEGENERATE, annualRatePercent: 99.99 }));
+
+  const beforeLast = result.schedule.slice(0, -1).map((r) => r.principal);
+
+  expect(beforeLast).toEqual(zerosLike(beforeLast));
+});

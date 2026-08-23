@@ -93,7 +93,12 @@ export function checkInvariants(input: CreditInput, result: CalculationResult): 
         `INV-06: row ${row.month} field ${field} must be non-negative`,
       ).toBeGreaterThanOrEqual(0);
     }
-    expect(row.principal, `INV-06: row ${row.month} principal must be strictly positive`).toBeGreaterThan(0);
+    // Weakened from "strictly positive" to "non-negative" — see D-23. A strictly
+    // positive principal does not follow from the specification: when
+    // roundHalfUp(B*K) equals roundHalfUp(B*i), the debt is not amortised at all
+    // and the whole body is closed by the corrective final payment. INV-02 still
+    // guarantees the loan closes.
+    expect(row.principal, `INV-06: row ${row.month} principal must not be negative`).toBeGreaterThanOrEqual(0);
 
     // INV-04: paymentTotal === principal + interest + insurance.
     expect(

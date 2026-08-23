@@ -75,9 +75,13 @@ test('INV-05: a gap in month numbering is caught', () => {
   expect(() => checkInvariants(INPUT, broken)).toThrow();
 });
 
-test('INV-06: a zero principal row is caught', () => {
+test('INV-06: a negative principal row is caught', () => {
+  // Zero is legal since D-23 — a degenerate schedule amortises nothing until the
+  // corrective final payment. Negative is still a defect, and must be caught.
   const broken = freshResult();
-  (broken.schedule[0] as ScheduleRow).principal = 0;
+  const row = broken.schedule[0] as ScheduleRow;
+  row.principal = -1;
+  row.paymentTotal -= 1;
   expect(() => checkInvariants(INPUT, broken)).toThrow();
 });
 
