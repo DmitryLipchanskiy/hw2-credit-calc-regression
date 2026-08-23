@@ -498,7 +498,119 @@ ignoredEarlyRepayments: Array<{ index, month, amount }>
 
 ---
 
-## 9. Что считается «прогоном»
+## 9. Публичный контракт ядра
+
+### REQ-38. Контракт фиксируется спецификацией, а не реализацией
+
+Сигнатуры и имена полей задаются **здесь** и одинаковы для всех участников веера:
+реализация (агент A), эталон (агент B), оба набора проверок (агенты C и D).
+
+**Причина.** Если бы контракт определял автор реализации, агентам C и D пришлось бы
+прочитать его код, чтобы узнать имена полей, — и независимость проверки, ради которой
+построена вся схема, исчезла бы ещё до первого теста. Контракт — часть спецификации,
+а не часть реализации.
+
+```ts
+// src/core/types.ts
+
+/** Денежная величина. Всегда целое число копеек, неотрицательное. REQ-01. */
+export type Kopecks = number;
+
+export type EarlyRepaymentMode = 'reduceTerm' | 'reducePayment';
+
+export interface EarlyRepaymentInput {
+  month: number;              // 1 … termMonths
+  amount: Kopecks;            // > 0
+  mode: EarlyRepaymentMode;
+}
+
+export interface InsuranceInput {
+  annualRatePercent: number;  // 0.00 … 10.00, не более 2 знаков
+}
+
+export interface CreditInput {
+  amount: Kopecks;
+  annualRatePercent: number;  // 0.00 … 100.00, не более 2 знаков
+  termMonths: number;         // 1 … 360
+  insurance: InsuranceInput | null;
+  earlyRepayments: EarlyRepaymentInput[];
+}
+
+/** Коды из таблицы REQ-09. */
+export type ValidationCode =
+  | 'AMOUNT_NOT_INTEGER'
+  | 'AMOUNT_OUT_OF_RANGE'
+  | 'RATE_OUT_OF_RANGE'
+  | 'RATE_TOO_PRECISE'
+  | 'TERM_NOT_INTEGER'
+  | 'TERM_OUT_OF_RANGE'
+  | 'NOT_A_NUMBER'
+  | 'INSURANCE_RATE_OUT_OF_RANGE'
+  | 'EARLY_MONTH_OUT_OF_RANGE'
+  | 'EARLY_AMOUNT_NOT_POSITIVE'
+  | 'EARLY_MODE_UNKNOWN'
+  | 'EARLY_DUPLICATE_MONTH';
+
+/** Строка графика. Состав полей — REQ-14. */
+export interface ScheduleRow {
+  month: number;
+  paymentTotal: Kopecks;
+  interest: Kopecks;
+  principal: Kopecks;
+  insurance: Kopecks;
+  earlyRepaymentRequested: Kopecks;
+  earlyRepaymentApplied: Kopecks;
+  earlyRepaymentExcess: Kopecks;
+  balanceAfter: Kopecks;
+}
+
+/** REQ-25. */
+export interface IgnoredEarlyRepayment {
+  index: number;   // позиция в исходном массиве earlyRepayments
+  month: number;
+  amount: Kopecks;
+}
+
+/** Итоги. Состав — REQ-26. */
+export interface CreditTotals {
+  monthlyPayment: Kopecks;
+  actualTermMonths: number;
+  totalPrincipal: Kopecks;
+  totalInterest: Kopecks;
+  totalInsurance: Kopecks;
+  totalPaid: Kopecks;
+  totalEarlyRepaymentExcess: Kopecks;
+  overpayment: Kopecks;
+  ignoredEarlyRepayments: IgnoredEarlyRepayment[];
+}
+
+export type CalculationResult =
+  | { ok: true;  schedule: ScheduleRow[]; totals: CreditTotals }
+  | { ok: false; errors: ValidationCode[] };
+```
+
+```ts
+// src/core/index.ts
+
+/** Единственная точка входа ядра. Исключений не бросает (REQ-09). */
+export function calculateCredit(input: CreditInput): CalculationResult;
+
+/** Округление half-up до целых копеек. REQ-04. */
+export function roundHalfUp(value: number): Kopecks;
+```
+
+**Дискриминатор результата — поле `ok`.** Проверка вида `'errors' in result` допустима,
+но канонический способ — `result.ok === false`.
+
+**Порядок кодов в `errors`** — по порядку полей в таблице REQ-09 (REQ-10).
+
+**Эталон на Python** воспроизводит те же имена полей в `snake_case`
+(`payment_total`, `early_repayment_applied`, `total_insurance` и так далее) и возвращает
+словарь той же структуры. Сопоставление имён — механическое, выполняется скриптом сверки.
+
+---
+
+## 10. Что считается «прогоном»
 
 ### REQ-34. Одна команда
 
