@@ -43,5 +43,16 @@ if (args.length === 0) {
 
 console.log(`using ${found.name} (${found.version})`);
 
-const run = spawnSync(found.name, args, { stdio: 'inherit', shell: false });
+/**
+ * Force UTF-8 on the child's stdio.
+ *
+ * Windows defaults stdout to the legacy ANSI code page (cp1252 on the CI runner),
+ * so a `print()` with Cyrillic in it dies with UnicodeEncodeError — which is what
+ * the first matrix run actually failed on, after the interpreter lookup above had
+ * already succeeded. macOS and Linux are UTF-8 anyway, so setting this everywhere
+ * costs nothing and keeps the fix in one place instead of in every call site.
+ */
+const env = { ...process.env, PYTHONIOENCODING: 'utf-8', PYTHONUTF8: '1' };
+
+const run = spawnSync(found.name, args, { stdio: 'inherit', shell: false, env });
 process.exit(run.status ?? 1);
