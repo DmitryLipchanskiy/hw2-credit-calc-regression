@@ -84,7 +84,13 @@ interface OkShape {
 
 type ResultShape = OkShape | { ok: false; errors: string[] };
 
-const calculate = calculateCredit as unknown as (input: InputShape) => ResultShape;
+/**
+ * Called directly, with no type assertion. The shapes above are transcribed from
+ * spec.md section 9, so if the transcription drifts from the real contract, this
+ * line stops compiling — which is exactly the signal an `as unknown as` cast
+ * would have swallowed. See D-17.
+ */
+const calculate = (source: InputShape): ResultShape => calculateCredit(source);
 
 /**
  * INV-01…INV-08 (REQ-16) are checked on every case of this file through the
@@ -850,4 +856,46 @@ test('REQ-25: the field is an empty array when there is nothing to ignore', () =
   const result = run(PAIR_EARLY_BARE);
 
   expect(result.totals.ignoredEarlyRepayments).toEqual([]);
+});
+
+/* ------------------------------------------------------------------ *
+ * Added during the merge, not by agent D.
+ *
+ * REQ-22 is ambiguous once an earlier reduceTerm has already shortened the
+ * schedule: "число оставшихся месяцев не меняется (termMonths − M)" can be read
+ * as "back to the original termMonths" or as "keep the current remaining term".
+ * Agent D dodged it by reordering its chain, which left the case untested.
+ *
+ * The literal reading is fixed here: reducePayment recomputes over
+ * termMonths − M, so it restores the end of the schedule to the original term.
+ * Both implementations already agree on this across 20 mixed-mode cases of the
+ * cross-check, so this is a characterisation test that pins a decided reading —
+ * not an independent derivation from requirements. See D-22.
+ * ------------------------------------------------------------------ */
+
+test('REQ-22: reducePayment after an earlier reduceTerm restores the original term', () => {
+  const shortenedOnly = run(
+    input({
+      earlyRepayments: [{ month: 12, amount: rub(200_000), mode: 'reduceTerm' }],
+    }),
+  );
+
+  const thenReduced = run(
+    input({
+      earlyRepayments: [
+        { month: 12, amount: rub(200_000), mode: 'reduceTerm' },
+        { month: 24, amount: rub(100_000), mode: 'reducePayment' },
+      ],
+    }),
+  );
+
+  expect(
+    shortenedOnly.totals.actualTermMonths,
+    'the reduceTerm step alone must shorten the schedule below the original term',
+  ).toBeLessThan(BASE.termMonths);
+
+  expect(
+    thenReduced.totals.actualTermMonths,
+    'REQ-22 read literally: reducePayment recomputes over termMonths - M',
+  ).toBe(BASE.termMonths);
 });
