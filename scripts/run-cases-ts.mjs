@@ -39,7 +39,7 @@ function toCamelInput(c) {
     annualRatePercent: c.annual_rate_percent,
     termMonths: c.term_months,
     insurance:
-      c.insurance == null
+      c.insurance === null || c.insurance === undefined
         ? null
         : { annualRatePercent: c.insurance.annual_rate_percent },
     earlyRepayments: (c.early_repayments ?? []).map((e) => ({

@@ -119,7 +119,15 @@ function errorsOf(input: CreditInput): ValidationCode[] {
   return (result as Extract<CalculationResult, { ok: false }>).errors;
 }
 
-/** Копия валидного входа с одним заменённым полем. */
+/**
+ * Копия валидного входа с одним заменённым полем.
+ *
+ * Единственное место в проекте, где приведение типа законно: тесты REQ-09 обязаны
+ * подавать значение неверного типа — строку или null там, где по контракту число.
+ * Без приведения такой кейс не написать. Исключение документировано в CLAUDE.md 4.5.
+ *
+ * forbidden-check: allow-type-assertion
+ */
 function withField(base: CreditInput, patch: Record<string, unknown>): CreditInput {
   return { ...base, ...patch } as unknown as CreditInput;
 }

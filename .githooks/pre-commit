@@ -1,0 +1,10 @@
+#!/bin/sh
+# Pre-commit gate. Lives in the repository, not in .git/hooks, so it is versioned
+# and visible. Enabled with: git config core.hooksPath .githooks
+#
+# Calls node rather than grep/sed: the same hook must work on macOS and Windows
+# (Git for Windows runs hooks through sh, but the shell utilities differ).
+
+set -e
+
+node scripts/check-forbidden.mjs

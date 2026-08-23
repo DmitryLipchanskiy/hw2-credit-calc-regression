@@ -4,16 +4,23 @@
   "private": true,
   "description": "Annuity credit calculator regression suite (TypeScript + Playwright)",
   "scripts": {
+    "prepare": "git config core.hooksPath .githooks",
     "test": "playwright test",
     "test:core": "playwright test tests/core",
+    "lint": "eslint src tests scripts",
+    "lint:forbidden": "node scripts/check-forbidden.mjs src/core/index.ts src/core/round.ts src/core/schedule.ts src/core/validate.ts tests/core/base.spec.ts tests/core/scenarios.spec.ts tests/core/invariants.ts tests/core/invariants-selfcheck.spec.ts scripts/run-cases-ts.mjs",
     "build": "tsc -p tsconfig.build.json",
     "oracle:ts": "node scripts/run-cases-ts.mjs",
-    "oracle:py": "python oracle/run_cases.py",
-    "oracle:compare": "python oracle/compare.py oracle/ts-results.json oracle/expected.json"
+    "oracle:py": "node scripts/python.mjs oracle/run_cases.py",
+    "oracle:compare": "node scripts/python.mjs oracle/compare.py oracle/ts-results.json oracle/expected.json",
+    "cross-check": "npm run build && npm run oracle:py && npm run oracle:ts && npm run oracle:compare"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.47.0",
-    "typescript": "^5.6.0"
+    "eslint": "^10.9.0",
+    "typescript": "^5.6.0",
+    "typescript-eslint": "^8.67.0"
   },
   "engines": {
     "node": ">=20"

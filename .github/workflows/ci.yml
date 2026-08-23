@@ -1,0 +1,74 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, windows-latest]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      # Pins a known interpreter on both legs. The name of the executable differs
+      # per OS (`python3` on macOS, `python` on Windows), so nothing in this file
+      # or in package.json calls either name directly: scripts/python.mjs probes
+      # for whichever exists. Hard-coding `python3` cost a whole session on the
+      # previous assignment — CLAUDE.md rule 3 exists because of it.
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Show tool versions
+        run: node --version
+        shell: bash
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Forbidden patterns (CLAUDE.md 4.5)
+        run: npm run lint:forbidden
+
+      - name: Type check
+        run: npx tsc --noEmit
+
+      - name: Run the regression suite
+        run: npm test
+
+      # Cross-check: the same 290 cases through the TypeScript core and through
+      # the independent Python reference. Divergence of a single kopeck fails the job.
+      - name: Build core
+        run: npm run build
+
+      - name: Python reference
+        run: npm run oracle:py
+
+      - name: TypeScript side
+        run: npm run oracle:ts
+
+      - name: Compare TS against the Python oracle
+        run: npm run oracle:compare
+
+      - name: Upload Playwright report
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report-${{ matrix.os }}
+          path: playwright-report/
+          retention-days: 7
