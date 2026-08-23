@@ -1,0 +1,3016 @@
+[
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 300000000,
+    "annual_rate_percent": 9.5,
+    "term_months": 240,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 12000000,
+    "annual_rate_percent": 0.0,
+    "term_months": 12,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": {
+      "annual_rate_percent": 1.0
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 12,
+        "amount": 20000000,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 12,
+        "amount": 20000000,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 50000000,
+    "annual_rate_percent": 19.9,
+    "term_months": 36,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 500000000,
+    "annual_rate_percent": 8.4,
+    "term_months": 180,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 1,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 360,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 10000000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 1,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 10000000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 360,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000000,
+    "annual_rate_percent": 0.0,
+    "term_months": 1,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000000,
+    "annual_rate_percent": 0.0,
+    "term_months": 360,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 10000000000,
+    "annual_rate_percent": 0.0,
+    "term_months": 1,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 10000000000,
+    "annual_rate_percent": 0.0,
+    "term_months": 360,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000000,
+    "annual_rate_percent": 100.0,
+    "term_months": 1,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000000,
+    "annual_rate_percent": 100.0,
+    "term_months": 360,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 10000000000,
+    "annual_rate_percent": 100.0,
+    "term_months": 1,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 10000000000,
+    "annual_rate_percent": 100.0,
+    "term_months": 360,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000000,
+    "annual_rate_percent": 0.01,
+    "term_months": 1,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000000,
+    "annual_rate_percent": 0.01,
+    "term_months": 360,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 10000000000,
+    "annual_rate_percent": 0.01,
+    "term_months": 360,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 12000000,
+    "annual_rate_percent": 0.01,
+    "term_months": 12,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000000,
+    "annual_rate_percent": 99.99,
+    "term_months": 360,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 10000000000,
+    "annual_rate_percent": 99.99,
+    "term_months": 1,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000001,
+    "annual_rate_percent": 12.0,
+    "term_months": 359,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 9999999999,
+    "annual_rate_percent": 12.0,
+    "term_months": 359,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 9999999999,
+    "annual_rate_percent": 0.01,
+    "term_months": 2,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000001,
+    "annual_rate_percent": 100.0,
+    "term_months": 2,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000000,
+    "annual_rate_percent": 0.0,
+    "term_months": 1,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000001,
+    "annual_rate_percent": 5.5,
+    "term_months": 23,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000003,
+    "annual_rate_percent": 15.0,
+    "term_months": 180,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 7777777,
+    "annual_rate_percent": 66.67,
+    "term_months": 4,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 12000000,
+    "annual_rate_percent": 0.1,
+    "term_months": 36,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 50000000,
+    "annual_rate_percent": 8.4,
+    "term_months": 359,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 99999999,
+    "annual_rate_percent": 25.25,
+    "term_months": 12,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 100.0,
+    "term_months": 84,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 123456789,
+    "annual_rate_percent": 3.33,
+    "term_months": 2,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 300000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 24,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 333333333,
+    "annual_rate_percent": 50.0,
+    "term_months": 240,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 500000000,
+    "annual_rate_percent": 0.01,
+    "term_months": 6,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000000000,
+    "annual_rate_percent": 7.77,
+    "term_months": 37,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 9999999999,
+    "annual_rate_percent": 19.9,
+    "term_months": 360,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 10000000000,
+    "annual_rate_percent": 99.99,
+    "term_months": 13,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000000,
+    "annual_rate_percent": 1.0,
+    "term_months": 120,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000001,
+    "annual_rate_percent": 9.5,
+    "term_months": 3,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000003,
+    "annual_rate_percent": 33.33,
+    "term_months": 25,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 7777777,
+    "annual_rate_percent": 0.0,
+    "term_months": 300,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 12000000,
+    "annual_rate_percent": 5.5,
+    "term_months": 11,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 50000000,
+    "annual_rate_percent": 15.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 99999999,
+    "annual_rate_percent": 66.67,
+    "term_months": 1,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 0.1,
+    "term_months": 23,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 123456789,
+    "annual_rate_percent": 8.4,
+    "term_months": 180,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 300000000,
+    "annual_rate_percent": 25.25,
+    "term_months": 4,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 333333333,
+    "annual_rate_percent": 100.0,
+    "term_months": 36,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 500000000,
+    "annual_rate_percent": 3.33,
+    "term_months": 359,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 12,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 9999999999,
+    "annual_rate_percent": 50.0,
+    "term_months": 84,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 10000000000,
+    "annual_rate_percent": 0.01,
+    "term_months": 2,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000000,
+    "annual_rate_percent": 7.77,
+    "term_months": 24,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000001,
+    "annual_rate_percent": 19.9,
+    "term_months": 240,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000003,
+    "annual_rate_percent": 99.99,
+    "term_months": 6,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 7777777,
+    "annual_rate_percent": 1.0,
+    "term_months": 37,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 12000000,
+    "annual_rate_percent": 9.5,
+    "term_months": 360,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 50000000,
+    "annual_rate_percent": 33.33,
+    "term_months": 13,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 99999999,
+    "annual_rate_percent": 0.0,
+    "term_months": 120,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 5.5,
+    "term_months": 3,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 123456789,
+    "annual_rate_percent": 15.0,
+    "term_months": 25,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 300000000,
+    "annual_rate_percent": 66.67,
+    "term_months": 300,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 333333333,
+    "annual_rate_percent": 0.1,
+    "term_months": 11,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 500000000,
+    "annual_rate_percent": 8.4,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000000000,
+    "annual_rate_percent": 25.25,
+    "term_months": 1,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 9999999999,
+    "annual_rate_percent": 100.0,
+    "term_months": 23,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 10000000000,
+    "annual_rate_percent": 3.33,
+    "term_months": 180,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 4,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000001,
+    "annual_rate_percent": 50.0,
+    "term_months": 36,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000003,
+    "annual_rate_percent": 0.01,
+    "term_months": 359,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 7777777,
+    "annual_rate_percent": 7.77,
+    "term_months": 12,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 12000000,
+    "annual_rate_percent": 19.9,
+    "term_months": 84,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 50000000,
+    "annual_rate_percent": 99.99,
+    "term_months": 2,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 99999999,
+    "annual_rate_percent": 1.0,
+    "term_months": 24,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 9.5,
+    "term_months": 240,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 123456789,
+    "annual_rate_percent": 33.33,
+    "term_months": 6,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 300000000,
+    "annual_rate_percent": 0.0,
+    "term_months": 37,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 333333333,
+    "annual_rate_percent": 5.5,
+    "term_months": 360,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 500000000,
+    "annual_rate_percent": 15.0,
+    "term_months": 13,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000000000,
+    "annual_rate_percent": 66.67,
+    "term_months": 120,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 9999999999,
+    "annual_rate_percent": 0.1,
+    "term_months": 3,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 10000000000,
+    "annual_rate_percent": 8.4,
+    "term_months": 25,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000000,
+    "annual_rate_percent": 25.25,
+    "term_months": 300,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000001,
+    "annual_rate_percent": 100.0,
+    "term_months": 11,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000003,
+    "annual_rate_percent": 3.33,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000001,
+    "annual_rate_percent": 0.0,
+    "term_months": 2,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000003,
+    "annual_rate_percent": 0.0,
+    "term_months": 2,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000005,
+    "annual_rate_percent": 0.0,
+    "term_months": 2,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000001,
+    "annual_rate_percent": 0.0,
+    "term_months": 3,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000002,
+    "annual_rate_percent": 0.0,
+    "term_months": 4,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000006,
+    "annual_rate_percent": 0.0,
+    "term_months": 4,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000001,
+    "annual_rate_percent": 0.0,
+    "term_months": 7,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000001,
+    "annual_rate_percent": 0.0,
+    "term_months": 360,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 9999999999,
+    "annual_rate_percent": 0.0,
+    "term_months": 7,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 9999999999,
+    "annual_rate_percent": 0.0,
+    "term_months": 360,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 123456789,
+    "annual_rate_percent": 0.0,
+    "term_months": 11,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 333333333,
+    "annual_rate_percent": 0.0,
+    "term_months": 13,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1000007,
+    "annual_rate_percent": 0.0,
+    "term_months": 6,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 3000003,
+    "annual_rate_percent": 0.0,
+    "term_months": 6,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": {
+      "annual_rate_percent": 0.0
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": {
+      "annual_rate_percent": 0.01
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": {
+      "annual_rate_percent": 0.5
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": {
+      "annual_rate_percent": 1.0
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": {
+      "annual_rate_percent": 2.5
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": {
+      "annual_rate_percent": 5.0
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": {
+      "annual_rate_percent": 7.77
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": {
+      "annual_rate_percent": 9.99
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": {
+      "annual_rate_percent": 10.0
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 1,
+    "insurance": {
+      "annual_rate_percent": 1.0
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 12,
+    "insurance": {
+      "annual_rate_percent": 1.0
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 13,
+    "insurance": {
+      "annual_rate_percent": 1.0
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 14,
+    "insurance": {
+      "annual_rate_percent": 1.0
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 25,
+    "insurance": {
+      "annual_rate_percent": 2.5
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 300000000,
+    "annual_rate_percent": 9.5,
+    "term_months": 240,
+    "insurance": {
+      "annual_rate_percent": 1.0
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 500000000,
+    "annual_rate_percent": 8.4,
+    "term_months": 180,
+    "insurance": {
+      "annual_rate_percent": 0.5
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 10000000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 360,
+    "insurance": {
+      "annual_rate_percent": 10.0
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 1000000,
+    "annual_rate_percent": 0.0,
+    "term_months": 360,
+    "insurance": {
+      "annual_rate_percent": 10.0
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 12000000,
+    "annual_rate_percent": 0.0,
+    "term_months": 12,
+    "insurance": {
+      "annual_rate_percent": 1.0
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 12000000,
+    "annual_rate_percent": 0.0,
+    "term_months": 13,
+    "insurance": {
+      "annual_rate_percent": 1.0
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 1000005000,
+    "annual_rate_percent": 0.03,
+    "term_months": 24,
+    "insurance": {
+      "annual_rate_percent": 0.03
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 1000005000,
+    "annual_rate_percent": 12.0,
+    "term_months": 24,
+    "insurance": {
+      "annual_rate_percent": 0.03
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 1000050,
+    "annual_rate_percent": 12.0,
+    "term_months": 24,
+    "insurance": {
+      "annual_rate_percent": 1.0
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 50000000,
+    "annual_rate_percent": 19.9,
+    "term_months": 36,
+    "insurance": {
+      "annual_rate_percent": 9.99
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 99999999,
+    "annual_rate_percent": 7.77,
+    "term_months": 37,
+    "insurance": {
+      "annual_rate_percent": 0.01
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 1000000,
+    "annual_rate_percent": 100.0,
+    "term_months": 360,
+    "insurance": {
+      "annual_rate_percent": 10.0
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 10000000000,
+    "annual_rate_percent": 0.01,
+    "term_months": 360,
+    "insurance": {
+      "annual_rate_percent": 0.01
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 123456789,
+    "annual_rate_percent": 15.0,
+    "term_months": 121,
+    "insurance": {
+      "annual_rate_percent": 3.0
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 333333333,
+    "annual_rate_percent": 33.33,
+    "term_months": 61,
+    "insurance": {
+      "annual_rate_percent": 5.0
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": {
+      "annual_rate_percent": 1.0
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 50000000,
+    "annual_rate_percent": 19.9,
+    "term_months": 36,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 50000000,
+    "annual_rate_percent": 19.9,
+    "term_months": 36,
+    "insurance": {
+      "annual_rate_percent": 1.0
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 300000000,
+    "annual_rate_percent": 9.5,
+    "term_months": 240,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 300000000,
+    "annual_rate_percent": 9.5,
+    "term_months": 240,
+    "insurance": {
+      "annual_rate_percent": 1.0
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 12000000,
+    "annual_rate_percent": 0.0,
+    "term_months": 12,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 12000000,
+    "annual_rate_percent": 0.0,
+    "term_months": 12,
+    "insurance": {
+      "annual_rate_percent": 1.0
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 1,
+        "amount": 1000000,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 1,
+        "amount": 1000000,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 60,
+        "amount": 1000000,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 60,
+        "amount": 1000000,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 59,
+        "amount": 1000000,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 59,
+        "amount": 1000000,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 1,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 1,
+        "amount": 1000000,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 1,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 1,
+        "amount": 1000000,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 2,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 1,
+        "amount": 5000000,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 2,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 1,
+        "amount": 5000000,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 30,
+        "amount": 99000000,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 30,
+        "amount": 99000000,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 1,
+        "amount": 10000000000,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 1000000,
+    "annual_rate_percent": 0.0,
+    "term_months": 12,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 6,
+        "amount": 1000000,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 1000000,
+    "annual_rate_percent": 0.0,
+    "term_months": 12,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 6,
+        "amount": 1000000,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 1000000,
+    "annual_rate_percent": 0.0,
+    "term_months": 12,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 6,
+        "amount": 400000,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 1000000,
+    "annual_rate_percent": 0.0,
+    "term_months": 12,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 6,
+        "amount": 400000,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 10000000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 360,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 180,
+        "amount": 1000000000,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 10000000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 360,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 180,
+        "amount": 1000000000,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 10000000000,
+    "annual_rate_percent": 100.0,
+    "term_months": 360,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 2,
+        "amount": 1000000000,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 1000000,
+    "annual_rate_percent": 100.0,
+    "term_months": 360,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 300,
+        "amount": 100000,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 6,
+        "amount": 5000000,
+        "mode": "reduceTerm"
+      },
+      {
+        "month": 12,
+        "amount": 5000000,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 6,
+        "amount": 5000000,
+        "mode": "reducePayment"
+      },
+      {
+        "month": 12,
+        "amount": 5000000,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 6,
+        "amount": 5000000,
+        "mode": "reduceTerm"
+      },
+      {
+        "month": 7,
+        "amount": 5000000,
+        "mode": "reduceTerm"
+      },
+      {
+        "month": 8,
+        "amount": 5000000,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 6,
+        "amount": 5000000,
+        "mode": "reducePayment"
+      },
+      {
+        "month": 7,
+        "amount": 5000000,
+        "mode": "reducePayment"
+      },
+      {
+        "month": 8,
+        "amount": 5000000,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 1,
+        "amount": 1000000,
+        "mode": "reduceTerm"
+      },
+      {
+        "month": 2,
+        "amount": 1000000,
+        "mode": "reducePayment"
+      },
+      {
+        "month": 3,
+        "amount": 1000000,
+        "mode": "reduceTerm"
+      },
+      {
+        "month": 4,
+        "amount": 1000000,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 300000000,
+    "annual_rate_percent": 9.5,
+    "term_months": 240,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 12,
+        "amount": 30000000,
+        "mode": "reduceTerm"
+      },
+      {
+        "month": 24,
+        "amount": 30000000,
+        "mode": "reduceTerm"
+      },
+      {
+        "month": 36,
+        "amount": 30000000,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 300000000,
+    "annual_rate_percent": 9.5,
+    "term_months": 240,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 12,
+        "amount": 30000000,
+        "mode": "reducePayment"
+      },
+      {
+        "month": 24,
+        "amount": 30000000,
+        "mode": "reducePayment"
+      },
+      {
+        "month": 36,
+        "amount": 30000000,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 300000000,
+    "annual_rate_percent": 9.5,
+    "term_months": 240,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 60,
+        "amount": 50000000,
+        "mode": "reduceTerm"
+      },
+      {
+        "month": 120,
+        "amount": 50000000,
+        "mode": "reducePayment"
+      },
+      {
+        "month": 180,
+        "amount": 50000000,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 24,
+        "amount": 5000000,
+        "mode": "reducePayment"
+      },
+      {
+        "month": 6,
+        "amount": 5000000,
+        "mode": "reduceTerm"
+      },
+      {
+        "month": 36,
+        "amount": 5000000,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 48,
+        "amount": 2000000,
+        "mode": "reduceTerm"
+      },
+      {
+        "month": 12,
+        "amount": 2000000,
+        "mode": "reduceTerm"
+      },
+      {
+        "month": 1,
+        "amount": 2000000,
+        "mode": "reducePayment"
+      },
+      {
+        "month": 30,
+        "amount": 2000000,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 6,
+        "amount": 1000000,
+        "mode": "reduceTerm"
+      },
+      {
+        "month": 12,
+        "amount": 99000000,
+        "mode": "reduceTerm"
+      },
+      {
+        "month": 24,
+        "amount": 500000,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 6,
+        "amount": 1000000,
+        "mode": "reducePayment"
+      },
+      {
+        "month": 12,
+        "amount": 99000000,
+        "mode": "reducePayment"
+      },
+      {
+        "month": 24,
+        "amount": 500000,
+        "mode": "reduceTerm"
+      },
+      {
+        "month": 48,
+        "amount": 700000,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 1,
+        "amount": 200000000,
+        "mode": "reduceTerm"
+      },
+      {
+        "month": 2,
+        "amount": 1000000,
+        "mode": "reduceTerm"
+      },
+      {
+        "month": 3,
+        "amount": 1000000,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": {
+      "annual_rate_percent": 1.0
+    },
+    "early_repayments": [
+      {
+        "month": 12,
+        "amount": 20000000,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": {
+      "annual_rate_percent": 1.0
+    },
+    "early_repayments": [
+      {
+        "month": 12,
+        "amount": 20000000,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": {
+      "annual_rate_percent": 1.0
+    },
+    "early_repayments": [
+      {
+        "month": 13,
+        "amount": 20000000,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": {
+      "annual_rate_percent": 1.0
+    },
+    "early_repayments": [
+      {
+        "month": 11,
+        "amount": 20000000,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 300000000,
+    "annual_rate_percent": 9.5,
+    "term_months": 240,
+    "insurance": {
+      "annual_rate_percent": 2.5
+    },
+    "early_repayments": [
+      {
+        "month": 13,
+        "amount": 50000000,
+        "mode": "reduceTerm"
+      },
+      {
+        "month": 25,
+        "amount": 50000000,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": {
+      "annual_rate_percent": 10.0
+    },
+    "early_repayments": [
+      {
+        "month": 1,
+        "amount": 50000000,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 0.0,
+    "term_months": 60,
+    "insurance": {
+      "annual_rate_percent": 1.0
+    },
+    "early_repayments": [
+      {
+        "month": 25,
+        "amount": 50000000,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 30,
+        "amount": 57407813,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 30,
+        "amount": 57407814,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 30,
+        "amount": 57407815,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 30,
+        "amount": 57407814,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 1,
+        "amount": 98775554,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 1,
+        "amount": 98775555,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 1,
+        "amount": 98775556,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 1,
+        "amount": 98775555,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 59,
+        "amount": 2202400,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 59,
+        "amount": 2202401,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 59,
+        "amount": 2202402,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 59,
+        "amount": 2202401,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 50000000,
+    "annual_rate_percent": 19.9,
+    "term_months": 36,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 18,
+        "amount": 28673842,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 50000000,
+    "annual_rate_percent": 19.9,
+    "term_months": 36,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 18,
+        "amount": 28673843,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 50000000,
+    "annual_rate_percent": 19.9,
+    "term_months": 36,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 18,
+        "amount": 28673844,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 50000000,
+    "annual_rate_percent": 19.9,
+    "term_months": 36,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 18,
+        "amount": 28673843,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 1000000,
+    "annual_rate_percent": 0.0,
+    "term_months": 12,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 6,
+        "amount": 500001,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 1000000,
+    "annual_rate_percent": 0.0,
+    "term_months": 12,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 6,
+        "amount": 500002,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 1000000,
+    "annual_rate_percent": 0.0,
+    "term_months": 12,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 6,
+        "amount": 500003,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 1000000,
+    "annual_rate_percent": 0.0,
+    "term_months": 12,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 6,
+        "amount": 500002,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 300000000,
+    "annual_rate_percent": 9.5,
+    "term_months": 240,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 120,
+        "amount": 216108595,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 300000000,
+    "annual_rate_percent": 9.5,
+    "term_months": 240,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 120,
+        "amount": 216108596,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 300000000,
+    "annual_rate_percent": 9.5,
+    "term_months": 240,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 120,
+        "amount": 216108597,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 300000000,
+    "annual_rate_percent": 9.5,
+    "term_months": 240,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 120,
+        "amount": 216108596,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 9895140920,
+    "annual_rate_percent": 85.85,
+    "term_months": 140,
+    "insurance": {
+      "annual_rate_percent": 3.96
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 8661828512,
+    "annual_rate_percent": 72.76,
+    "term_months": 335,
+    "insurance": {
+      "annual_rate_percent": 8.68
+    },
+    "early_repayments": [
+      {
+        "month": 72,
+        "amount": 129787346,
+        "mode": "reducePayment"
+      },
+      {
+        "month": 256,
+        "amount": 133364580,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 9076100612,
+    "annual_rate_percent": 38.14,
+    "term_months": 336,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 116,
+        "amount": 77618895,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 4746887348,
+    "annual_rate_percent": 22.64,
+    "term_months": 282,
+    "insurance": {
+      "annual_rate_percent": 3.56
+    },
+    "early_repayments": [
+      {
+        "month": 213,
+        "amount": 192195821,
+        "mode": "reducePayment"
+      },
+      {
+        "month": 265,
+        "amount": 6818076,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 7637317298,
+    "annual_rate_percent": 1.3,
+    "term_months": 240,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 121,
+        "amount": 38836836,
+        "mode": "reduceTerm"
+      },
+      {
+        "month": 125,
+        "amount": 38264746,
+        "mode": "reduceTerm"
+      },
+      {
+        "month": 210,
+        "amount": 15375338,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 9748787740,
+    "annual_rate_percent": 14.65,
+    "term_months": 220,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 93,
+        "amount": 168337439,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 2022227328,
+    "annual_rate_percent": 53.22,
+    "term_months": 209,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 976693036,
+    "annual_rate_percent": 95.32,
+    "term_months": 107,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 11,
+        "amount": 100714439,
+        "mode": "reduceTerm"
+      },
+      {
+        "month": 25,
+        "amount": 84455566,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 354495700,
+    "annual_rate_percent": 84.4,
+    "term_months": 220,
+    "insurance": {
+      "annual_rate_percent": 4.84
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 9615398727,
+    "annual_rate_percent": 24.3,
+    "term_months": 165,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 12,
+        "amount": 135149340,
+        "mode": "reducePayment"
+      },
+      {
+        "month": 85,
+        "amount": 180593973,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 8089009699,
+    "annual_rate_percent": 38.1,
+    "term_months": 11,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 9,
+        "amount": 137335800,
+        "mode": "reduceTerm"
+      },
+      {
+        "month": 10,
+        "amount": 169383291,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 2794529091,
+    "annual_rate_percent": 32.81,
+    "term_months": 357,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 4959434507,
+    "annual_rate_percent": 84.85,
+    "term_months": 256,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 8752799366,
+    "annual_rate_percent": 78.54,
+    "term_months": 82,
+    "insurance": {
+      "annual_rate_percent": 4.79
+    },
+    "early_repayments": [
+      {
+        "month": 38,
+        "amount": 91314387,
+        "mode": "reduceTerm"
+      },
+      {
+        "month": 71,
+        "amount": 98986390,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 8170167327,
+    "annual_rate_percent": 23.72,
+    "term_months": 172,
+    "insurance": {
+      "annual_rate_percent": 7.38
+    },
+    "early_repayments": [
+      {
+        "month": 9,
+        "amount": 54676742,
+        "mode": "reduceTerm"
+      },
+      {
+        "month": 74,
+        "amount": 179580030,
+        "mode": "reduceTerm"
+      },
+      {
+        "month": 148,
+        "amount": 128806406,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 7734177498,
+    "annual_rate_percent": 79.36,
+    "term_months": 39,
+    "insurance": {
+      "annual_rate_percent": 2.43
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 1029292685,
+    "annual_rate_percent": 42.24,
+    "term_months": 164,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 8228388514,
+    "annual_rate_percent": 6.08,
+    "term_months": 5,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 5,
+        "amount": 197216151,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 8533517982,
+    "annual_rate_percent": 51.74,
+    "term_months": 10,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 4808076547,
+    "annual_rate_percent": 95.05,
+    "term_months": 297,
+    "insurance": {
+      "annual_rate_percent": 1.0
+    },
+    "early_repayments": [
+      {
+        "month": 27,
+        "amount": 87547556,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 3568166950,
+    "annual_rate_percent": 23.06,
+    "term_months": 47,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 3379994989,
+    "annual_rate_percent": 10.71,
+    "term_months": 203,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 463378789,
+    "annual_rate_percent": 74.14,
+    "term_months": 337,
+    "insurance": {
+      "annual_rate_percent": 5.3
+    },
+    "early_repayments": [
+      {
+        "month": 59,
+        "amount": 32229484,
+        "mode": "reducePayment"
+      },
+      {
+        "month": 97,
+        "amount": 177544640,
+        "mode": "reducePayment"
+      },
+      {
+        "month": 183,
+        "amount": 82191892,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 3183026665,
+    "annual_rate_percent": 5.17,
+    "term_months": 331,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 186,
+        "amount": 77723274,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 6796271223,
+    "annual_rate_percent": 9.85,
+    "term_months": 223,
+    "insurance": {
+      "annual_rate_percent": 1.98
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 27640938,
+    "annual_rate_percent": 32.51,
+    "term_months": 161,
+    "insurance": {
+      "annual_rate_percent": 2.76
+    },
+    "early_repayments": [
+      {
+        "month": 62,
+        "amount": 184600373,
+        "mode": "reduceTerm"
+      },
+      {
+        "month": 77,
+        "amount": 22019483,
+        "mode": "reducePayment"
+      },
+      {
+        "month": 113,
+        "amount": 58152944,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 3701505890,
+    "annual_rate_percent": 44.99,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 1749411278,
+    "annual_rate_percent": 3.4,
+    "term_months": 10,
+    "insurance": {
+      "annual_rate_percent": 0.51
+    },
+    "early_repayments": [
+      {
+        "month": 5,
+        "amount": 125620936,
+        "mode": "reduceTerm"
+      },
+      {
+        "month": 8,
+        "amount": 185986288,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 5990712636,
+    "annual_rate_percent": 69.09,
+    "term_months": 356,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 9138119137,
+    "annual_rate_percent": 88.14,
+    "term_months": 141,
+    "insurance": {
+      "annual_rate_percent": 9.29
+    },
+    "early_repayments": [
+      {
+        "month": 44,
+        "amount": 115967484,
+        "mode": "reducePayment"
+      },
+      {
+        "month": 116,
+        "amount": 59895489,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 1000000.5,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 999999,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 10000000001,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 0,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": -100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 0.5,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": -0.01,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 100.01,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 120.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.001,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 0.001,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 0.0001,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 100.001,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60.5,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 0,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 361,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": -12,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 400,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": -100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 400,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": "100000000",
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": "12",
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": null,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": null,
+    "annual_rate_percent": null,
+    "term_months": null,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": true,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": {
+      "annual_rate_percent": -0.01
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": {
+      "annual_rate_percent": 10.01
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": {
+      "annual_rate_percent": 100.0
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": {
+      "annual_rate_percent": "1"
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": {},
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": {
+      "annual_rate_percent": 1.001
+    },
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 0,
+        "amount": 1000000,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 61,
+        "amount": 1000000,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": -1,
+        "amount": 1000000,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 1.5,
+        "amount": 1000000,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 12,
+        "amount": 0,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 12,
+        "amount": -1000000,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 12,
+        "amount": 1000000.5,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 12,
+        "amount": 1000000,
+        "mode": "reduce"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 12,
+        "amount": 1000000,
+        "mode": "REDUCETERM"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 12,
+        "amount": 1000000,
+        "mode": null
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 12,
+        "amount": 1000000,
+        "mode": "reduceTerm"
+      },
+      {
+        "month": 12,
+        "amount": 2000000,
+        "mode": "reducePayment"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 12,
+        "amount": 1000000,
+        "mode": "reduceTerm"
+      },
+      {
+        "month": 12,
+        "amount": 1000000,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 5,
+        "amount": 1000000,
+        "mode": "reduceTerm"
+      },
+      {
+        "month": 9,
+        "amount": 2000000,
+        "mode": "reducePayment"
+      },
+      {
+        "month": 5,
+        "amount": 3000000,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 999999,
+    "annual_rate_percent": 101.0,
+    "term_months": 400,
+    "insurance": {
+      "annual_rate_percent": 11.0
+    },
+    "early_repayments": [
+      {
+        "month": 0,
+        "amount": 0,
+        "mode": "x"
+      }
+    ]
+  },
+  {
+    "amount": 1000000.5,
+    "annual_rate_percent": 12.005,
+    "term_months": 60.5,
+    "insurance": {
+      "annual_rate_percent": -1.0
+    },
+    "early_repayments": [
+      {
+        "month": 70,
+        "amount": -5,
+        "mode": "y"
+      },
+      {
+        "month": 70,
+        "amount": 5,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 12,
+        "amount": 1000000,
+        "mode": "reduceTerm"
+      },
+      {
+        "month": 70,
+        "amount": 1000000,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": true,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": "60",
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": false,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": []
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": "12",
+        "amount": 1000000,
+        "mode": "reduceTerm"
+      }
+    ]
+  },
+  {
+    "amount": 100000000,
+    "annual_rate_percent": 12.0,
+    "term_months": 60,
+    "insurance": null,
+    "early_repayments": [
+      {
+        "month": 12,
+        "amount": null,
+        "mode": "reduceTerm"
+      }
+    ]
+  }
+]
