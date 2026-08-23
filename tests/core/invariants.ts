@@ -98,7 +98,9 @@ export function checkInvariants(input: CreditInput, result: CalculationResult): 
     // roundHalfUp(B*K) equals roundHalfUp(B*i), the debt is not amortised at all
     // and the whole body is closed by the corrective final payment. INV-02 still
     // guarantees the loan closes.
-    expect(row.principal, `INV-06: row ${row.month} principal must not be negative`).toBeGreaterThanOrEqual(0);
+    // Отдельный ассерт на principal >= 0 удалён (аудит скептика, сессия 3):
+    // после ослабления D-23 он стал буквальным дублем цикла по ROW_MONEY_FIELDS
+    // строкой выше, который уже требует неотрицательности каждого денежного поля.
 
     // INV-04: paymentTotal === principal + interest + insurance.
     expect(

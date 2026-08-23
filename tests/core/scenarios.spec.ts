@@ -617,15 +617,7 @@ test('REQ-23 (requested > balance): the rest is reported as excess', () => {
   );
 });
 
-test('REQ-23 (requested > balance): applied plus excess equals the requested sum', () => {
-  // INV-07 stated on the row where it matters most.
-  const result = run(OVERPAY_AT_12);
-  const target = row(result, 12);
-
-  expect(target.earlyRepaymentApplied + target.earlyRepaymentExcess).toBe(
-    target.earlyRepaymentRequested,
-  );
-});
+/* Удалён дубль инварианта (аудит скептика): дословно INV-07 */
 
 test('REQ-23 (requested > balance): the requested field keeps the sum that was asked for', () => {
   const result = run(OVERPAY_AT_12);
@@ -660,15 +652,7 @@ test('REQ-23 (requested > balance): the excess is not credited to the principal'
   expect(result.totals.totalPrincipal).toBe(BASE.amount);
 });
 
-test('REQ-23 (requested > balance): the excess is not part of totalPaid', () => {
-  const result = run(OVERPAY_AT_12);
-
-  expect(result.totals.totalPaid).toBe(
-    result.totals.totalPrincipal +
-      result.totals.totalInterest +
-      result.totals.totalInsurance,
-  );
-});
+/* Удалён дубль инварианта (аудит скептика): переформулировка INV-08 */
 
 /* ================================================================== *
  * REQ-24. Several early repayments, mixed modes.

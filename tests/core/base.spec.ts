@@ -136,21 +136,9 @@ function withField(base: CreditInput, patch: Record<string, unknown>): CreditInp
 // REQ-01, REQ-02 — деньги целые, арифметика целочисленная
 // ===========================================================================
 
-test('REQ-01: every money field of the totals is an integer number of kopecks', () => {
-  const { totals } = run(O01);
-  for (const field of TOTALS_MONEY_FIELDS) {
-    expect(Number.isInteger(totals[field]), `totals.${field} must be an integer`).toBe(true);
-  }
-});
+/* Удалён дубль инварианта (аудит скептика): целочисленность полей уже в INV-06 */
 
-test('REQ-01: every money field of every schedule row is an integer number of kopecks', () => {
-  const { schedule } = run(O01);
-  for (const row of schedule) {
-    for (const field of ROW_MONEY_FIELDS) {
-      expect(Number.isInteger(row[field]), `row ${row.month}.${field} must be an integer`).toBe(true);
-    }
-  }
-});
+/* Удалён дубль инварианта (аудит скептика): целочисленность полей уже в INV-06 */
 
 test('REQ-02: a non round amount is repaid to the last kopeck without loss', () => {
   const { totals } = run(NON_ROUND_AMOUNT);
@@ -202,10 +190,7 @@ test('REQ-04: roundHalfUp leaves an already integer value unchanged', () => {
 // REQ-05 — последний платёж корректирующий
 // ===========================================================================
 
-test('REQ-05: the balance after the last row is exactly zero', () => {
-  const { schedule } = run(O01);
-  expect(schedule[schedule.length - 1]!.balanceAfter).toBe(0);
-});
+/* Удалён дубль инварианта (аудит скептика): дословно INV-02 */
 
 test('REQ-05: the principal of the last row equals the balance left after the previous row', () => {
   const { schedule } = run(O01);
@@ -489,15 +474,24 @@ test('REQ-15: the interest of the first month is charged on the opening balance'
   expect(schedule[0]!.interest).toBe(1_000_000);
 });
 
-test('REQ-15: the principal of the first month is the payment minus the interest', () => {
-  const { schedule, totals } = run(O01);
-  expect(schedule[0]!.principal).toBe(totals.monthlyPayment - schedule[0]!.interest);
-});
-
-test('REQ-15: the balance after the first month is the amount minus the principal', () => {
-  const { schedule } = run(O01);
-  expect(schedule[0]!.balanceAfter).toBe(O01.amount - schedule[0]!.principal);
-});
+/*
+ * Удалены две тавтологии (аудит скептика, сессия 3):
+ *
+ *   'REQ-15: the principal of the first month is the payment minus the interest'
+ *   'REQ-15: the balance after the first month is the amount minus the principal'
+ *
+ * Первая сравнивала principal с monthlyPayment - interest, а monthlyPayment
+ * в реализации выведен как principal + interest первой строки — тождество,
+ * истинное при любой реализации. Вторая — следствие INV-01/INV-03, проверяемых
+ * на каждом кейсе.
+ *
+ * Доказательство их бессодержательности: мутация M-23 (principal = payment -
+ * interest - 100) уронила 12 тестов, но не эти два, хотя по названию они обязаны
+ * были упасть первыми.
+ *
+ * Ту же зону теперь закрывает REQ-15 через конкретное значение процентов
+ * (строка выше) и якорные тесты в skeptic-findings.spec.ts. См. D-31.
+ */
 
 test('REQ-15: the interest of the second month is strictly smaller than that of the first', () => {
   // Проценты начисляются на убывающий остаток: если бы базой была исходная сумма
@@ -518,10 +512,7 @@ test('REQ-26: the totals carry every field listed in the specification', () => {
   }
 });
 
-test('REQ-26: actualTermMonths equals the number of rows in the schedule', () => {
-  const { schedule, totals } = run(O01);
-  expect(totals.actualTermMonths).toBe(schedule.length);
-});
+/* Удалён дубль инварианта (аудит скептика): дословно INV-05 */
 
 test('REQ-26: a schedule without early repayment runs for the full requested term', () => {
   // O-01: фактический срок 60 месяцев.
@@ -529,10 +520,12 @@ test('REQ-26: a schedule without early repayment runs for the full requested ter
   expect(totals.actualTermMonths).toBe(60);
 });
 
-test('REQ-26: monthlyPayment equals the total of the first row when there is no insurance', () => {
-  const { schedule, totals } = run(O01);
-  expect(totals.monthlyPayment).toBe(schedule[0]!.paymentTotal);
-});
+/*
+ * Удалена третья тавтология (аудит скептика, сессия 3):
+ *   'REQ-26: monthlyPayment equals the total of the first row when there is no insurance'
+ * То же тождество плюс INV-04: обе стороны сдвигаются вместе при любой ошибке
+ * в платеже. Значение monthlyPayment закреплено числом O-01 отдельным тестом. D-31.
+ */
 
 test('REQ-26: monthlyPayment excludes the insurance premium of the first month', () => {
   const { schedule, totals } = run(O04);
