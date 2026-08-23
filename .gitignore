@@ -1,0 +1,36 @@
+# --- Секреты. Этот блок первый и никогда не удаляется. ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+secrets.json
+.claude/settings.local.json
+
+# --- Зависимости и сборка ---
+node_modules/
+dist/
+build/
+coverage/
+
+# --- Артефакты прогонов Playwright ---
+# Рабочие артефакты игнорируются. Зафиксированная копия отчёта для сдачи
+# кладётся руками в reports/ — этот каталог версионируется.
+playwright-report/
+blob-report/
+test-results/
+playwright/.cache/
+
+# --- Артефакты сборки PDF ---
+*.pdf.tmp
+
+# --- IDE и ОС ---
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# --- Логи ---
+*.log
+npm-debug.log*
