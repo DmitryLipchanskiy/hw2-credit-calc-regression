@@ -65,6 +65,14 @@ jobs:
       - name: Compare TS against the Python oracle
         run: npm run oracle:compare
 
+      # A green job whose Python half silently skipped looks exactly like a green
+      # job where it ran. This step reads the artefacts and fails on any zero:
+      # zero cases compared, zero tests run, a skipped test, a missing interpreter.
+      # The numbers land in the job summary, so the evidence is visible without
+      # expanding a single step.
+      - name: Evidence check
+        run: npm run ci:evidence
+
       - name: Upload Playwright report
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v4
