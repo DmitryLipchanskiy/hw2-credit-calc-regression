@@ -6,7 +6,10 @@
   "scripts": {
     "test": "playwright test",
     "test:core": "playwright test tests/core",
-    "oracle:compare": "node scripts/cross-check.mjs"
+    "build": "tsc -p tsconfig.build.json",
+    "oracle:ts": "node scripts/run-cases-ts.mjs",
+    "oracle:py": "python oracle/run_cases.py",
+    "oracle:compare": "python oracle/compare.py oracle/ts-results.json oracle/expected.json"
   },
   "devDependencies": {
     "@playwright/test": "^1.47.0",
