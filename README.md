@@ -11,7 +11,10 @@
 ## Документы
 
 - [CLAUDE.md](CLAUDE.md) — правила работы для агентов в этом репозитории
-- [docs/spec.md](docs/spec.md) — спецификация калькулятора
+- [REPORT.md](REPORT.md) — отчёт: что сделано, что не сработало, что урезали
+- [docs/spec.md](docs/spec.md) — спецификация калькулятора, `REQ-01…REQ-37`, `INV-01…INV-08`
 - [docs/plan.md](docs/plan.md) — план сессий
 - [docs/oracle.md](docs/oracle.md) — внешние контрольные точки
 - [docs/decisions.md](docs/decisions.md) — журнал решений
+- [docs/prompts/](docs/prompts/) — промпты для запусков в отдельных сессиях
+- [sessions/](sessions/) — журнал сессий, промпты дословно
