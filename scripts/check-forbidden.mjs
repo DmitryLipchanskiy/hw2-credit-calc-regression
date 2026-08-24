@@ -69,19 +69,24 @@ function allTrackedFiles() {
 function targetFiles(explicit) {
   const args = explicit.filter((a) => a !== '--all');
   let list;
+  let mode;
   if (explicit.includes('--all')) {
     list = allTrackedFiles();
+    mode = 'all';
   } else if (args.length > 0) {
     list = args;
+    mode = 'explicit';
   } else {
     list = stagedFiles();
+    mode = 'staged';
   }
-  return list.filter(
+  const files = list.filter(
     (f) => /\.(ts|mts|mjs)$/.test(f) && !f.endsWith(SELF) && fs.existsSync(f),
   );
+  return { files, mode, candidates: list.length };
 }
 
-const files = targetFiles(process.argv.slice(2));
+const { files, mode, candidates } = targetFiles(process.argv.slice(2));
 const findings = [];
 
 for (const file of files) {
@@ -121,6 +126,34 @@ if (findings.length > 0) {
       'each of these patterns has already hidden a real defect in this project.\n',
   );
   process.exit(1);
+}
+
+/**
+ * Zero files is never reported as "clean".
+ *
+ * "0 file(s) clean" looked exactly as successful as "21 file(s) clean" while having
+ * checked nothing — the same class of false green this script exists to prevent, and
+ * it slipped through four times before someone read the number instead of the word.
+ *
+ * The three cases are genuinely different and now read differently:
+ *   staged   — a commit touching only .md legitimately has nothing to check;
+ *   explicit — the caller named files that do not qualify, probably a mistake;
+ *   all      — an empty repository-wide scan means discovery is broken. Fail.
+ */
+if (files.length === 0) {
+  if (mode === 'all') {
+    console.error(
+      'forbidden-pattern check: FAILED — repository-wide scan found no source files at all.\n' +
+        'File discovery is broken; this is not a clean result.',
+    );
+    process.exit(1);
+  }
+  const reason =
+    mode === 'staged'
+      ? `nothing to check: none of the ${candidates} staged file(s) are .ts/.mts/.mjs`
+      : `nothing to check: none of the ${candidates} named file(s) are .ts/.mts/.mjs`;
+  console.log(`forbidden-pattern check: ${reason}`);
+  process.exit(0);
 }
 
 console.log(`forbidden-pattern check: ${files.length} file(s) clean`);
