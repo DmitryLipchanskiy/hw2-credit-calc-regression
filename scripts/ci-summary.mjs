@@ -115,11 +115,30 @@ if (report === null) {
     flaky: 'flaky',
   };
 
+  /**
+   * Per-project tally, keyed by the project names the config declares.
+   *
+   * The overall total is not enough. If a project stops matching any files —
+   * a renamed directory, a changed testDir, a stray filter — the run still ends
+   * green: the remaining project passes, nothing fails, and the total stays
+   * comfortably above zero. The browser half of the suite would simply stop
+   * running, and no signal would say so.
+   *
+   * The expected names come from `config.projects`, never from a hand-written
+   * list here: a list that must be updated by hand is a list that will be wrong,
+   * as the lint:forbidden file list already demonstrated after a merge.
+   */
+  const declared = (report.config?.projects ?? []).map((p) => p.name).filter(Boolean);
+  const byProject = new Map(declared.map((name) => [name, 0]));
+
   const walk = (suite) => {
     for (const spec of suite.specs ?? []) {
       for (const t of spec.tests ?? []) {
         const key = OUTCOME[t.status] ?? 'other';
         counts[key] += 1;
+        if (key === 'passed' && typeof t.projectName === 'string') {
+          byProject.set(t.projectName, (byProject.get(t.projectName) ?? 0) + 1);
+        }
       }
     }
     for (const child of suite.suites ?? []) walk(child);
@@ -133,6 +152,23 @@ if (report === null) {
     `Tests: ${total} total -- ${counts.passed} passed, ${counts.failed} failed, ` +
       `${counts.skipped} skipped, ${counts.flaky} flaky`,
   );
+
+  if (declared.length === 0) {
+    problems.push('the report declares no Playwright projects -- cannot verify per-project coverage');
+  } else {
+    const perProject = declared
+      .map((name) => `${name}: ${byProject.get(name) ?? 0}`)
+      .join(', ');
+    say(`Projects: ${perProject}`);
+
+    for (const name of declared) {
+      if ((byProject.get(name) ?? 0) === 0) {
+        problems.push(
+          `project "${name}" passed zero tests -- declared in the config but produced no work`,
+        );
+      }
+    }
+  }
 
   if (total === 0) problems.push('the suite reported zero tests');
   if (counts.passed === 0) problems.push('zero tests passed');

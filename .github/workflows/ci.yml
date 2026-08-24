@@ -15,6 +15,10 @@ jobs:
       matrix:
         os: [macos-latest, windows-latest]
 
+    env:
+      # One browser location for both operating systems — see the cache step below.
+      PLAYWRIGHT_BROWSERS_PATH: ${{ github.workspace }}/.pw-browsers
+
     steps:
       - uses: actions/checkout@v4
 
@@ -38,6 +42,38 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      # The browser cache is keyed by the Playwright version, not by the lockfile
+      # hash: a browser build belongs to a Playwright release, and any other npm
+      # dependency changing must not invalidate a ~200 MB download.
+      - name: Resolve Playwright version
+        id: pw
+        shell: bash
+        run: echo "version=$(node -p "require('@playwright/test/package.json').version")" >> "$GITHUB_OUTPUT"
+
+      # PLAYWRIGHT_BROWSERS_PATH points at a directory inside the workspace, so the
+      # cache path is one literal string on both operating systems. The default
+      # locations differ (~/Library/Caches on macOS, %LOCALAPPDATA% on Windows) and
+      # a `~` in an actions/cache path is not reliably expanded on Windows — that
+      # is exactly the kind of per-OS divergence this project keeps tripping over.
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: .pw-browsers
+          key: ${{ runner.os }}-playwright-${{ steps.pw.outputs.version }}
+
+      # chromium only: the e2e project runs in one browser, and pulling three
+      # would double the matrix for nothing.
+      #
+      # No --with-deps: that flag installs system libraries through apt and is
+      # Linux-only. This matrix is macOS + Windows, where it is unneeded and would
+      # fail — stacking a second breakage on top of the one this step fixes.
+      #
+      # Run unconditionally rather than gated on a cache hit: with the browser
+      # already present the command exits in about a second, and a partially
+      # restored cache still gets repaired instead of failing at test time.
+      - name: Install Chromium
+        run: npx playwright install chromium
 
       - name: Lint
         run: npm run lint
