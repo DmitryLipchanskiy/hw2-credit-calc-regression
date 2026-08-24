@@ -1,0 +1,21 @@
+{
+  // Separate config for the UI layer only.
+  //
+  // Why it exists: the root tsconfig.json emits CommonJS (it serves the Playwright
+  // suite and the Node-side oracle runner). A browser <script type="module"> cannot
+  // load CommonJS, so the UI needs an ES-module emit — and the root config is not
+  // in this agent's zone to change. Extending it keeps strict, noUncheckedIndexedAccess
+  // and the rest of the project's compiler contract identical.
+  //
+  // rootDir is `..` (= src) rather than `.` because app.ts imports ../core, and tsc
+  // refuses to emit a file that sits outside rootDir. Output therefore mirrors src:
+  //   dist/web/ui/app.js   dist/web/core/*.js
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "outDir": "../../dist/web",
+    "rootDir": ".."
+  },
+  "include": ["app.ts"]
+}
