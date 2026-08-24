@@ -80,13 +80,12 @@ function targetFiles(explicit) {
     list = stagedFiles();
     mode = 'staged';
   }
-  const files = list.filter(
-    (f) => /\.(ts|mts|mjs)$/.test(f) && !f.endsWith(SELF) && fs.existsSync(f),
-  );
-  return { files, mode, candidates: list.length };
+  const sources = list.filter((f) => /\.(ts|mts|mjs)$/.test(f) && fs.existsSync(f));
+  const files = sources.filter((f) => !f.endsWith(SELF));
+  return { files, mode, candidates: list.length, selfSkipped: sources.length - files.length };
 }
 
-const { files, mode, candidates } = targetFiles(process.argv.slice(2));
+const { files, mode, candidates, selfSkipped } = targetFiles(process.argv.slice(2));
 const findings = [];
 
 for (const file of files) {
@@ -148,10 +147,14 @@ if (files.length === 0) {
     );
     process.exit(1);
   }
+  // Say why precisely. "none are .ts/.mjs" was itself inaccurate when the only
+  // qualifying file was this script, excluded as SELF — a wording that does not
+  // match the facts is the same defect one level down.
+  const where = mode === 'staged' ? 'staged' : 'named';
   const reason =
-    mode === 'staged'
-      ? `nothing to check: none of the ${candidates} staged file(s) are .ts/.mts/.mjs`
-      : `nothing to check: none of the ${candidates} named file(s) are .ts/.mts/.mjs`;
+    selfSkipped > 0
+      ? `nothing to check: of ${candidates} ${where} file(s), the only source file is this script itself`
+      : `nothing to check: none of the ${candidates} ${where} file(s) are .ts/.mts/.mjs`;
   console.log(`forbidden-pattern check: ${reason}`);
   process.exit(0);
 }
