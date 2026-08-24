@@ -1,0 +1,25 @@
+;; Seatbelt profile: writes are confined to the project directory.
+;;
+;; This is the same OS mechanism Claude Code's built-in sandbox uses on macOS
+;; (/usr/bin/sandbox-exec). Applying it by hand makes the boundary reproducible
+;; and independent of whether the session sandbox happens to be on.
+;;
+;; Deliberately permissive about reading and executing: the point is to show a
+;; write boundary being refused, not to build a hardened jail.
+
+(version 1)
+(deny default)
+
+(allow process*)
+(allow sysctl-read)
+(allow mach*)
+(allow signal)
+(allow file-read*)
+
+;; Writes: only inside the project, plus the places any process needs.
+(allow file-write*
+  (subpath (param "WORKDIR"))
+  (literal "/dev/null")
+  (literal "/dev/stdout")
+  (literal "/dev/stderr")
+  (subpath "/private/var/folders"))
