@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Кредитный калькулятор — аннуитет</title>
+    <link rel="stylesheet" href="/src/ui/styles.css" />
+    <!--
+      REQ-28…REQ-33. Vanilla HTML, no framework, no bundler: app.js is the plain
+      tsc output of src/ui/app.ts (see src/ui/tsconfig.ui.json).
+    -->
+    <script type="module" src="/dist/web/ui/app.js"></script>
+  </head>
+  <body>
+    <main class="page">
+      <h1>Кредитный калькулятор</h1>
+      <p class="lede">Аннуитетный платёж, страховка, досрочное погашение.</p>
+
+      <!-- REQ-29: no recalculation on input. The button is the only trigger. -->
+      <form class="form" data-testid="form" autocomplete="off">
+        <div class="field">
+          <label for="amount">Сумма кредита, ₽</label>
+          <!--
+            type="text", not type="number", on purpose: a number input silently drops
+            what the browser cannot parse, and REQ-09 cases such as NOT_A_NUMBER would
+            become untestable through the UI.
+          -->
+          <input id="amount" data-testid="amount" type="text" inputmode="decimal" value="1000000" />
+        </div>
+
+        <div class="field">
+          <label for="rate">Ставка, % годовых</label>
+          <input id="rate" data-testid="rate" type="text" inputmode="decimal" value="12" />
+        </div>
+
+        <div class="field">
+          <label for="term">Срок, месяцев</label>
+          <input id="term" data-testid="term" type="text" inputmode="numeric" value="60" />
+        </div>
+
+        <fieldset class="group">
+          <legend>Страховка</legend>
+          <label class="check">
+            <input type="checkbox" data-testid="insurance-enabled" id="insurance-enabled" />
+            <span>Включить страховку</span>
+          </label>
+          <div class="field">
+            <label for="insurance-rate">Ставка страховки, % годовых от остатка</label>
+            <input
+              id="insurance-rate"
+              data-testid="insurance-rate"
+              type="text"
+              inputmode="decimal"
+              value="1"
+            />
+          </div>
+        </fieldset>
+
+        <fieldset class="group">
+          <legend>Досрочные погашения</legend>
+          <div data-testid="early-list" class="early-list"></div>
+          <button type="button" data-testid="early-add" class="secondary">
+            Добавить досрочное погашение
+          </button>
+        </fieldset>
+
+        <button type="submit" data-testid="calculate" class="primary">Рассчитать</button>
+      </form>
+
+      <!-- REQ-31: on invalid input this list is shown and the result block stays hidden. -->
+      <ul class="errors" data-testid="errors" hidden></ul>
+
+      <section class="result" data-testid="result" hidden>
+        <h2>Результат</h2>
+        <dl class="totals">
+          <div class="total">
+            <dt>Ежемесячный платёж</dt>
+            <dd data-testid="monthly-payment"></dd>
+          </div>
+          <div class="total">
+            <dt>Фактический срок</dt>
+            <dd data-testid="actual-term"></dd>
+          </div>
+          <div class="total">
+            <dt>Общая сумма выплат</dt>
+            <dd data-testid="total-paid"></dd>
+          </div>
+          <div class="total">
+            <dt>Переплата</dt>
+            <dd data-testid="overpayment"></dd>
+          </div>
+        </dl>
+
+        <!-- REQ-25: ignored early repayments are a list, not a flag. -->
+        <div class="ignored" data-testid="ignored-early" hidden>
+          <h3>Досрочные погашения, которые не применились</h3>
+          <ul data-testid="ignored-list"></ul>
+        </div>
+
+        <div class="table-wrap">
+          <table data-testid="schedule-table">
+            <caption>График платежей</caption>
+            <thead>
+              <tr>
+                <th scope="col">Мес.</th>
+                <th scope="col">Платёж</th>
+                <th scope="col">Проценты</th>
+                <th scope="col">Тело</th>
+                <th scope="col">Страховка</th>
+                <th scope="col">Досрочно</th>
+                <th scope="col">Остаток</th>
+              </tr>
+            </thead>
+            <tbody data-testid="schedule-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <template data-testid="early-row-template">
+      <div class="early-row" data-testid="early-row">
+        <label>
+          <span>Месяц</span>
+          <input data-testid="early-month" type="text" inputmode="numeric" />
+        </label>
+        <label>
+          <span>Сумма, ₽</span>
+          <input data-testid="early-amount" type="text" inputmode="decimal" />
+        </label>
+        <label>
+          <span>Режим</span>
+          <select data-testid="early-mode">
+            <option value="reduceTerm">Уменьшить срок</option>
+            <option value="reducePayment">Уменьшить платёж</option>
+          </select>
+        </label>
+        <button type="button" data-testid="early-remove" class="secondary">Убрать</button>
+      </div>
+    </template>
+  </body>
+</html>
