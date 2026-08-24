@@ -137,6 +137,7 @@ npx playwright install chromium
 | `npm run test:core` | только проверки над ядром, без браузера — 162 из 170 |
 | `npm run test:e2e` | только браузерные сценарии — 8 из 170 |
 | `npm run build:ui` | компиляция страницы калькулятора в `dist/web/` |
+| `npm run build:pdf` | пересборка [REPORT.pdf](REPORT.pdf) из `REPORT.md` — печать через Chromium, которым уже пользуется Playwright |
 | `npm run serve:ui` | локальный сервер со страницей; сам собирает UI при старте |
 | `npm run regression-run` | **workflow**: прогон по изменениям с прошлого раза, отчёт в `reports/` |
 | `npm run cross-check` | сборка + 290 случаев через Python-эталон + через TypeScript + сравнение |
@@ -270,6 +271,7 @@ Pre-commit хук лежит в репозитории (`.githooks/pre-commit`),
 - [docs/decisions.md](docs/decisions.md) — журнал решений: что изменили, на каком основании
 - [docs/mutations.md](docs/mutations.md) — мутационная проверка ядра: что поймали, что нет
 - [docs/prompts/](docs/prompts/) — промпты агентов, дословно
+- [REPORT.pdf](REPORT.pdf) — тот же отчёт вёрсткой под печать, 29 страниц; пересобирается `npm run build:pdf`
 - [REPORT.md](REPORT.md) — отчёт: что сделано, что не сработало, что урезали
 - [sessions/](sessions/) — журнал сессий
 - [CLAUDE.md](CLAUDE.md) — правила работы для агентов в этом репозитории

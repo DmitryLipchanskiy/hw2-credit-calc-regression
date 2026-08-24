@@ -9,6 +9,7 @@
     "test:core": "playwright test tests/core",
     "test:e2e": "playwright test --project=e2e",
     "build:ui": "tsc -p src/ui/tsconfig.ui.json",
+    "build:pdf": "node scripts/build-pdf.mjs",
     "serve:ui": "node src/ui/serve.mjs",
     "lint": "eslint src tests scripts",
     "check:secrets": "node scripts/check-secrets.mjs --history",
