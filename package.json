@@ -15,7 +15,8 @@
     "oracle:py": "node scripts/python.mjs oracle/run_cases.py",
     "oracle:compare": "node scripts/python.mjs oracle/compare.py oracle/ts-results.json oracle/expected.json",
     "cross-check": "npm run build && npm run oracle:py && npm run oracle:ts && npm run oracle:compare",
-    "ci:evidence": "node scripts/ci-summary.mjs"
+    "ci:evidence": "node scripts/ci-summary.mjs",
+    "regression-run": "node scripts/regression-run.mjs"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
