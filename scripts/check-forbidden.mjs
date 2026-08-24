@@ -52,18 +52,25 @@ function stagedFiles() {
 const SELF = 'check-forbidden.mjs';
 
 /**
- * Every tracked source file. Used by `--all`.
+ * Every source file in the working tree. Used by `--all`.
  *
  * Discovered, never listed by hand: the previous version carried an explicit list
  * in package.json, and merging the UI and e2e branches silently left 11 of 20 files
  * unchecked. A list that must be updated by hand is a list that will be wrong.
+ *
+ * `--others --exclude-standard` alongside `--cached` is the point of D-41: with
+ * `ls-files` alone the scan saw tracked files only, so a freshly written, not yet
+ * staged file was invisible and the run still printed "N file(s) clean". That is
+ * the moment the check is needed most. Ignored files stay out: `--exclude-standard`
+ * honours .gitignore, so node_modules and dist are not walked.
  */
-function allTrackedFiles() {
-  return execFileSync('git', ['ls-files', '*.ts', '*.mts', '*.mjs'], {
-    encoding: 'utf8',
-  })
-    .split('\n')
-    .filter(Boolean);
+function allWorkingTreeFiles() {
+  const out = execFileSync(
+    'git',
+    ['ls-files', '--cached', '--others', '--exclude-standard', '*.ts', '*.mts', '*.mjs'],
+    { encoding: 'utf8' },
+  );
+  return [...new Set(out.split('\n').filter(Boolean))];
 }
 
 function targetFiles(explicit) {
@@ -71,7 +78,7 @@ function targetFiles(explicit) {
   let list;
   let mode;
   if (explicit.includes('--all')) {
-    list = allTrackedFiles();
+    list = allWorkingTreeFiles();
     mode = 'all';
   } else if (args.length > 0) {
     list = args;
