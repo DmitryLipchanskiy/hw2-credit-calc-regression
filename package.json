@@ -8,6 +8,7 @@
     "test": "playwright test",
     "test:core": "playwright test tests/core",
     "lint": "eslint src tests scripts",
+    "check:secrets": "node scripts/check-secrets.mjs --history",
     "lint:forbidden": "node scripts/check-forbidden.mjs src/core/index.ts src/core/round.ts src/core/schedule.ts src/core/validate.ts tests/core/base.spec.ts tests/core/scenarios.spec.ts tests/core/invariants.ts tests/core/invariants-selfcheck.spec.ts scripts/run-cases-ts.mjs",
     "build": "tsc -p tsconfig.build.json",
     "oracle:ts": "node scripts/run-cases-ts.mjs",

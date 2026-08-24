@@ -1,0 +1,12 @@
+#!/bin/sh
+# Pre-push gate: CLAUDE.md rule 6, enforced mechanically.
+#
+# Runs before every push, including the first one to a fresh remote. Scans the
+# working tree AND the whole history: after a push to a public repository,
+# cleaning is too late — the history stays.
+#
+# Calls node rather than grep: the same hook must work on macOS and Windows.
+
+set -e
+
+node scripts/check-secrets.mjs --history
