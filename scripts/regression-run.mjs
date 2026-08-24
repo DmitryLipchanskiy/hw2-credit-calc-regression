@@ -392,8 +392,17 @@ if (e2eArea !== null && !needFull) {
   }
 }
 
+/**
+ * The grep regex contains `|`. Unquoted it reads as a shell pipe when copied out of
+ * the report, and it breaks the markdown table it is printed in. The arguments are
+ * passed to spawnSync as an array, so quoting is a display concern only.
+ */
+function renderArgs(args) {
+  return args.map((a) => (/[|\s"]/.test(a) ? `"${a}"` : a)).join(' ');
+}
+
 function runPlaywright(stage) {
-  say(`> node ${path.relative(ROOT, PLAYWRIGHT_CLI)} ${stage.args.join(' ')}`);
+  say(`> node ${path.relative(ROOT, PLAYWRIGHT_CLI)} ${renderArgs(stage.args)}`);
   if (fs.existsSync(RESULTS_JSON)) fs.rmSync(RESULTS_JSON);
 
   const r = spawnSync(process.execPath, [PLAYWRIGHT_CLI, ...stage.args], {
@@ -612,8 +621,13 @@ lines.push('| Этап | Команда | Всего | passed | failed | skipped
 lines.push('|---|---|---:|---:|---:|---:|---:|---:|');
 for (const r of stageResults) {
   const c = r.counts;
+  // A bare `|` inside a cell ends the cell: it has to be escaped for the table.
+  const cmd = `node node_modules/@playwright/test/cli.js ${renderArgs(r.stage.args)}`.replace(
+    /\|/g,
+    '\\|',
+  );
   lines.push(
-    `| ${r.stage.name} | \`node node_modules/@playwright/test/cli.js ${r.stage.args.join(' ')}\` | ` +
+    `| ${r.stage.name} | \`${cmd}\` | ` +
       `${c.total} | ${c.passed} | ${c.failed} | ${c.skipped} | ${c.flaky} | ${r.exitCode} |`,
   );
 }
