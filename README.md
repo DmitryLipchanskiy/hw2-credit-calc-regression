@@ -136,6 +136,12 @@ npx playwright install chromium
 Зависимость не была названа, и внешний аудитор, шедший по таблице сверху вниз,
 получил красный шаг.
 
+Тот же красный шаг получается ещё одним способом: `npx playwright test --reporter=line`
+**подменяет** весь список репортеров из `playwright.config.ts`, а не добавляется к нему,
+поэтому `test-results/results.json` не пишется вовсе и `ci:evidence` сообщает
+`test-results/results.json is missing`. Для сводки нужен прогон с конфигурными
+репортерами, то есть `npm test`.
+
 `npm run check:secrets` работает и без файла `.private-denylist.txt` — он локальный
 и намеренно не коммитится. В его отсутствие проверка деградирует до встроенных правил
 и прямо это печатает: `.private-denylist.txt not found — local word list skipped,
