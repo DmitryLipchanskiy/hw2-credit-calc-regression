@@ -70,12 +70,35 @@ function git(args, { allowFail = false } = {}) {
     console.error(`git ${args.join(' ')} could not be started: ${r.error.message}`);
     process.exit(2);
   }
-  const out = `${r.stdout ?? ''}`.trim();
+  const raw = `${r.stdout ?? ''}`;
+  const out = raw.trim();
   if (r.status !== 0 && !allowFail) {
     console.error(`git ${args.join(' ')} failed:\n${r.stderr}`);
     process.exit(2);
   }
-  return { ok: r.status === 0, out, code: r.status };
+  return { ok: r.status === 0, out, raw, code: r.status };
+}
+
+/**
+ * `git status --porcelain` puts the two status letters in columns 1-2 and the path
+ * from column 4. The leading column is a space for an unstaged change, so the output
+ * must NOT be trimmed before parsing — trimming ate the first character of the first
+ * path ("scripts/..." came out as "cripts/..."), and the file then fell outside the
+ * mapping table. Found by the script's own run, which is why the unmapped case is
+ * conservative rather than silent.
+ */
+function parseStatus(rawOut) {
+  return rawOut
+    .split('\n')
+    .map((l) => l.replace(/\r$/, ''))
+    .filter((l) => l.length > 3)
+    .map((l) => l.slice(3))
+    .map((l) => {
+      const arrow = l.indexOf(' -> '); // rename: "old -> new"
+      return arrow === -1 ? l : l.slice(arrow + 4);
+    })
+    .map((l) => l.replace(/^"(.*)"$/, '$1')) // git quotes paths with odd characters
+    .filter(Boolean);
 }
 
 function refExists(ref) {
@@ -253,11 +276,7 @@ const committed =
 
 // Uncommitted work counts too: a run that silently ignored the working tree would
 // report on code that is not the code on disk.
-const dirty = git(['status', '--porcelain'])
-  .out.split('\n')
-  .filter(Boolean)
-  .map((l) => l.slice(3).trim())
-  .filter(Boolean);
+const dirty = parseStatus(git(['status', '--porcelain']).raw);
 
 const changed = [...new Set([...committed, ...dirty])].sort();
 
