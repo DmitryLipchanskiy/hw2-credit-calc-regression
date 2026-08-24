@@ -51,8 +51,31 @@ function stagedFiles() {
  */
 const SELF = 'check-forbidden.mjs';
 
+/**
+ * Every tracked source file. Used by `--all`.
+ *
+ * Discovered, never listed by hand: the previous version carried an explicit list
+ * in package.json, and merging the UI and e2e branches silently left 11 of 20 files
+ * unchecked. A list that must be updated by hand is a list that will be wrong.
+ */
+function allTrackedFiles() {
+  return execFileSync('git', ['ls-files', '*.ts', '*.mts', '*.mjs'], {
+    encoding: 'utf8',
+  })
+    .split('\n')
+    .filter(Boolean);
+}
+
 function targetFiles(explicit) {
-  const list = explicit.length > 0 ? explicit : stagedFiles();
+  const args = explicit.filter((a) => a !== '--all');
+  let list;
+  if (explicit.includes('--all')) {
+    list = allTrackedFiles();
+  } else if (args.length > 0) {
+    list = args;
+  } else {
+    list = stagedFiles();
+  }
   return list.filter(
     (f) => /\.(ts|mts|mjs)$/.test(f) && !f.endsWith(SELF) && fs.existsSync(f),
   );
