@@ -122,6 +122,27 @@ const req = (n) => `REQ-${String(n).padStart(2, '0')}`;
  * `reqs` are requirement numbers from docs/spec.md; they select tests by title,
  * because every test in this project is titled with the REQ-NN / INV-NN it covers.
  */
+/**
+ * Что область втягивает в прогон, одной строкой.
+ *
+ * Кросс-сверка **складывается** с тестами, а не заменяет их: правка в `src/core`
+ * выбирает и свои REQ-тесты, и сравнение TS <-> Python. До D-40 здесь стояла
+ * цепочка `? :`, в которой crossCheck вытеснял список REQ, — а сама сверка
+ * запускалась только при правке `oracle/**`.
+ */
+function describeArea(area, arrow, invLabel) {
+  if (area.noTests) return 'проверок не требует';
+  const parts = [];
+  if (area.full) {
+    parts.push('полный прогон');
+  } else {
+    const reqs = [...(area.reqs ?? []).map(req), ...(area.invariants ? [invLabel] : [])];
+    if (reqs.length > 0) parts.push(reqs.join(', '));
+  }
+  if (area.crossCheck) parts.push(`кросс-проверка TS ${arrow} Python`);
+  return parts.join(' + ');
+}
+
 const AREAS = [
   {
     id: 'core-round',
@@ -129,12 +150,14 @@ const AREAS = [
     match: ['src/core/round.ts'],
     reqs: [1, 2, 3, 4, 36],
     invariants: true,
+    crossCheck: true,
   },
   {
     id: 'core-validate',
     title: 'Валидация входа',
     match: ['src/core/validate.ts'],
     reqs: range(6, 10),
+    crossCheck: true,
   },
   {
     id: 'core-schedule',
@@ -142,12 +165,14 @@ const AREAS = [
     match: ['src/core/schedule.ts'],
     reqs: [...range(11, 27), 37],
     invariants: true,
+    crossCheck: true,
   },
   {
     id: 'core-contract',
     title: 'Публичный контракт ядра',
     match: ['src/core/index.ts', 'src/core/types.ts'],
     full: true,
+    crossCheck: true,
   },
   {
     id: 'ui',
@@ -171,6 +196,7 @@ const AREAS = [
   {
     id: 'infra',
     title: 'Инфраструктура прогона',
+    crossCheck: true,
     match: [
       'playwright.config.ts',
       'tsconfig.json',
@@ -321,13 +347,7 @@ if (matched.size === 0 && unmapped.length === 0) {
   say('Ни один файл не изменился — сопоставлять нечего.');
 }
 for (const { area, files } of matched.values()) {
-  const target = area.full
-    ? 'полный прогон'
-    : area.crossCheck
-      ? 'кросс-проверка TS <-> Python'
-      : area.noTests
-        ? 'проверок не требует'
-        : [...(area.reqs ?? []).map(req), ...(area.invariants ? ['все инварианты INV-*'] : [])].join(', ');
+  const target = describeArea(area, '<->', 'все инварианты INV-*');
   say(`  [${area.id}] ${area.title}`);
   say(`      файлы: ${files.join(', ')}`);
   say(`      область: ${target}`);
@@ -483,7 +503,7 @@ for (const r of stageResults) {
   if (r.exitCode !== 0) problems.push(`[${r.stage.name}] playwright вернул код ${r.exitCode}`);
 }
 
-/* ---- cross-check TS <-> Python, only when oracle/** changed ---- */
+/* ---- cross-check TS <-> Python: oracle/**, src/core/** and the run scripts ---- */
 
 const crossSteps = [];
 if (needCrossCheck) {
@@ -588,13 +608,7 @@ if (matched.size === 0 && unmapped.length === 0) {
   lines.push('| Область | Файлы | Что прогоняется |');
   lines.push('|---|---|---|');
   for (const { area, files } of matched.values()) {
-    const target = area.full
-      ? 'полный прогон'
-      : area.crossCheck
-        ? 'кросс-проверка TS ↔ Python'
-        : area.noTests
-          ? 'проверок не требует'
-          : [...(area.reqs ?? []).map(req), ...(area.invariants ? ['INV-*'] : [])].join(', ');
+    const target = describeArea(area, '↔', 'INV-*');
     lines.push(`| ${area.title} | ${files.map((f) => `\`${f}\``).join('<br>')} | ${target} |`);
   }
   if (unmapped.length > 0) {
